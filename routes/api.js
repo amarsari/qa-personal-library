@@ -83,7 +83,8 @@ module.exports = function (app) {
           commentcount: book.comments.length
         });
       } catch (error) {
-        res.send("There was an error finding the book. No books exist with that ID");
+        res.send("no book exists");
+        return;
       }
     })
     
@@ -107,7 +108,7 @@ module.exports = function (app) {
           commentcount: book.comments.length
         });
       } catch (error) {
-        res.send("There was an error finding the book. No books exist with that ID");
+        res.send("no book exists");
       }
     })
     
@@ -117,12 +118,12 @@ module.exports = function (app) {
       try{
         const book = await Book.findByIdAndDelete(bookID);
         if(!book) {
-          res.send("No book exists with that ID");
+          res.send("no book exists");
           return;
         }
         res.send("delete successful");
       } catch (error) {
-        res.send("There was an error deleting the book");
+        res.send("no book exists");
       }
     });
   
