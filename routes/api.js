@@ -17,9 +17,13 @@ module.exports = function (app) {
       
     })
     
-    .post(function (req, res){
+    .post(async (req, res){
       let title = req.body.title;
       //response will contain new book object including atleast _id and title
+      const { _id, book_title} = req.body;
+
+      
+      
     })
     
     .delete(function(req, res){
